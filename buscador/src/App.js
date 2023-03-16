@@ -10,9 +10,11 @@ function App() {
   async function handleSearch(){
     if(input === ''){
       alert ("Coloque o Cep!!!")
-    }return
+      return
+    }
     try{
       const response = await api.get(`${input}/json`)
+      setCep(response.data)
     }catch{
       alert("Cep não localizado.");
       setinput("")
@@ -30,14 +32,20 @@ function App() {
         <button className = "buttonSearch" onClick={handleSearch} >
            <FiSearch size={25} color="#FFF"/> </button>
       </div>
-      <main className='main'>
-        <h2> Cep: </h2>
-        <span> Rua Teste </span>
-        <span> Complemento: Teste </span>
-        <span> Bairro: Teste </span>
-        <span> Cidade Teste - TS </span>
+
+
+      {Object.keys(cep). length > 1 &&( <main className='main'>
+        <h2> Cep:{cep.cep} </h2>
+
+        <span> {cep.logradouro} </span>
+        <span> Complemento:{cep.complemento} </span>
+        <span> {cep.bairro} </span>
+        <span> {cep.localidade}-{cep.uf} </span>
 
       </main>
+
+      )}
+
     </div>
   );
 }
