@@ -22,3 +22,25 @@
     }
 
 }
+
+.containerInput{
+    background-color:rgba(#5C58BB,#e45b9b, #5C58BB, 0.2);
+    padding: 15px;
+    margin: 34px 0;
+    display: flex;
+    border-radius: 8px;
+    box-shadow:1px 3px 8px rgba(0,0,0, 0.5);
+}
+
+.containerInput input{
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    color: #e45b9b ;
+    overflow: none;
+    margin-right: 8px;
+}
+
+.containerInput input ::placeholder{
+    color: #5C58BB;
+}
